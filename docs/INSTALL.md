@@ -27,8 +27,7 @@ No Downloader app needed. Add a short HTTP source, then install the zip from it.
 
    `https://singulainthony.github.io/kodi/repo/`
 
-   Short link (easier to type): **`https://tinyurl.com/leanflixrepo`**  
-   *(created after Pages is live — if TinyURL alias is taken, use the github.io URL)*
+   Short link (easier to type): **`https://tinyurl.com/22v2xar3`**
 
 3. Name the source **LeanFlix** → OK.
 4. **Add-ons → open-box icon → Install from zip file** → **LeanFlix**
