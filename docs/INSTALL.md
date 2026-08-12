@@ -16,28 +16,39 @@ Use the official Kodi 21 build for your device (Fire TV / Android TV / Shield / 
    - Set **Updates** / **Update official add-ons from** to **Any repositories**.
 3. Optional but useful: **Settings → Interface → Screensaver** off while installing.
 
-## 3. Install LeanFlix (two ways)
+## 3. Install LeanFlix (File Manager source — best on a TV remote)
 
-You do **not** need GitHub hosting to start. Pick one.
+No Downloader app needed. Add a short HTTP source, then install the zip from it.
 
-### A. Wizard zip (fastest, works offline-ish)
+### A. File Manager source (recommended on TV)
 
-1. Copy `install/script.leanflix.wizard-1.0.2.zip` to the device (USB, SMB, or Downloads).
-2. **Add-ons → open-box icon → Install from zip file**
-3. Browse to the zip → install.
-4. Run **Program add-ons → LeanFlix Wizard**.
+1. **Settings → File Manager → Add source**
+2. Enter this URL (or the short link below):
 
-### B. Repository zip (then install wizard from the repo)
+   `https://singulainthony.github.io/kodi/repo/`
 
-1. Copy `install/repository.leanflix-1.0.0.zip` (same file as `repository.leanflix-1.0.0.zip` at the repo root).
-2. **Add-ons → Install from zip file** → that zip.
-3. **Install from repository → LeanFlix Repo → Program add-ons → LeanFlix Wizard**.
+   Short link (easier to type): **`https://tinyurl.com/leanflixrepo`**  
+   *(created after Pages is live — if TinyURL alias is taken, use the github.io URL)*
+
+3. Name the source **LeanFlix** → OK.
+4. **Add-ons → open-box icon → Install from zip file** → **LeanFlix**
+5. Select **`script.leanflix.wizard-1.0.2.zip`** → install.
+6. Run **Program add-ons → LeanFlix Wizard**.
+
+### B. USB / local copy
+
+1. Copy `install/script.leanflix.wizard-1.0.2.zip` to USB or Downloads.
+2. **Install from zip file** → browse to the zip → install.
+3. Run **Program add-ons → LeanFlix Wizard**.
+
+### C. Repository zip (then install wizard from the LeanFlix repo)
+
+1. From the same File Manager source, install **`repository.leanflix-1.0.0.zip`**.
+2. **Install from repository → LeanFlix Repo → Program add-ons → LeanFlix Wizard**.
 
 The repo’s `<info>` / `<datadir>` point at:
 
-`https://raw.githubusercontent.com/anonymouspro/kodi/main/zips/`
-
-Update `repository.leanflix/addon.xml` if your GitHub user/repo differs, then re-run `scripts/package.sh`. Until that URL serves `zips/addons.xml`, use method **A**.
+`https://raw.githubusercontent.com/singulainthony/kodi/main/zips/`
 
 ## 4. Run the wizard
 

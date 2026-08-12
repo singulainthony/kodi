@@ -2,9 +2,9 @@
 <addon id="repository.leanflix" name="LeanFlix Repo" version="1.0.0" provider-name="LeanFlix">
     <extension point="xbmc.addon.repository" name="LeanFlix Repo">
         <dir>
-            <info compressed="false">https://raw.githubusercontent.com/anonymouspro/kodi/main/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/anonymouspro/kodi/main/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/anonymouspro/kodi/main/zips/</datadir>
+            <info compressed="false">https://raw.githubusercontent.com/singulainthony/kodi/main/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/singulainthony/kodi/main/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/singulainthony/kodi/main/zips/</datadir>
         </dir>
     </extension>
     <extension point="xbmc.addon.metadata">
@@ -13,8 +13,8 @@
         <disclaimer lang="en_GB">This repository does not host video content. The author is not affiliated with Kodi, Team Kodi, Real-Debrid, or Trakt. Install Unknown Sources at your own risk.</disclaimer>
         <platform>all</platform>
         <license>GPL-2.0-or-later</license>
-        <website>https://github.com/anonymouspro/kodi</website>
-        <source>https://github.com/anonymouspro/kodi</source>
+        <website>https://github.com/singulainthony/kodi</website>
+        <source>https://github.com/singulainthony/kodi</source>
         <assets>
             <icon>icon.png</icon>
         </assets>
