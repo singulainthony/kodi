@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Movies",
+    "icon": "special://skin/extras/icons/film.png",
+    "path": "ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=dir_movie,return)",
+    "target": "",
+    "guid": "leanflix-sub-movies"
+  },
+  {
+    "label": "TV Shows",
+    "icon": "special://skin/extras/icons/tv.png",
+    "path": "ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=dir_tv,return)",
+    "target": "",
+    "guid": "leanflix-sub-tv"
+  },
+  {
+    "label": "Search",
+    "icon": "special://skin/extras/icons/search.png",
+    "path": "ReplaceWindow(1105)",
+    "target": "",
+    "guid": "leanflix-sub-search"
+  },
+  {
+    "label": "Settings",
+    "icon": "special://skin/extras/icons/settings.png",
+    "path": "ActivateWindow(1170)",
+    "target": "",
+    "guid": "leanflix-sub-settings"
+  }
+]

@@ -1,0 +1,212 @@
+# Kodi Media Center language file
+# Addon Name: LeanFlix Wizard
+# Addon id: script.leanflix.wizard
+# Addon Provider: LeanFlix
+msgid ""
+msgstr ""
+"Project-Id-Version: script.leanflix.wizard\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30000"
+msgid "LeanFlix Wizard"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Install core components"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Setup checklist"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Open VOD add-on settings"
+msgstr ""
+
+msgctxt "#30013"
+msgid "Switch skin to Arctic Fuse 3"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Exit"
+msgstr ""
+
+msgctxt "#30020"
+msgid "Install Arctic Fuse 3, Red Light (Real-Debrid VOD), and CocoScrapers now?[CR][CR]Requires Unknown Sources and “Any repositories” in Kodi add-on settings. Confirm any Kodi install prompts that appear."
+msgstr ""
+
+msgctxt "#30021"
+msgid "Wizard closed"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Unexpected error:[CR]%s"
+msgstr ""
+
+msgctxt "#30030"
+msgid "This will add file-manager sources, install the jurialmunkey / Red Wizard / CocoJoe repositories, then install Arctic Fuse 3, Red Light (Fen Light AM if still listed), and CocoScrapers.[CR][CR]Third-party zips are downloaded from their own repos (nothing is bundled). Continue?"
+msgstr ""
+
+msgctxt "#30031"
+msgid "Adding file-manager sources…"
+msgstr ""
+
+msgctxt "#30032"
+msgid "Some file sources could not be added:[CR]%s[CR][CR]Repo install will still try direct zip download."
+msgstr ""
+
+msgctxt "#30033"
+msgid "Installing upstream repository…"
+msgstr ""
+
+msgctxt "#30034"
+msgid "Refreshing add-on repositories…"
+msgstr ""
+
+msgctxt "#30035"
+msgid "Installing %s…[CR]Confirm the Kodi prompt if it appears."
+msgstr ""
+
+msgctxt "#30036"
+msgid "Installing Red Light (VOD)…"
+msgstr ""
+
+msgctxt "#30037"
+msgid "Installing CocoScrapers…"
+msgstr ""
+
+msgctxt "#30038"
+msgid "Finishing up…"
+msgstr ""
+
+msgctxt "#30039"
+msgid "Core install finished."
+msgstr ""
+
+msgctxt "#30040"
+msgid "Could not install %s from[CR]%s[CR][CR]%s"
+msgstr ""
+
+msgctxt "#30041"
+msgid "Repository extracted but Kodi did not enable %s. Check Unknown Sources and try again."
+msgstr ""
+
+msgctxt "#30042"
+msgid "Kodi will now prompt to install:[CR][CR]%s[CR][CR]Select Install / Yes."
+msgstr ""
+
+msgctxt "#30043"
+msgid "No VOD add-on was found in installed repositories.[CR][CR]Tried: %s[CR][CR]Open Add-ons → Install from repository → The Red Repo → Video add-ons and install Red Light (or Fen Light AM if listed). The wizard will detect it next time."
+msgstr ""
+
+msgctxt "#30044"
+msgid "%s is not installed. Install core components first (jurialmunkey repo → Look and Feel → Skins)."
+msgstr ""
+
+msgctxt "#30045"
+msgid "Switch the Kodi skin to %s now?[CR][CR]Kodi will ask to keep the new skin — choose Yes."
+msgstr ""
+
+msgctxt "#30046"
+msgid "Could not switch skin to %s. Set it manually under Settings → Interface → Skin."
+msgstr ""
+
+msgctxt "#30047"
+msgid "Skin set to %s"
+msgstr ""
+
+msgctxt "#30048"
+msgid "Could not install CocoScrapers (%s). Install from CocoScrapers Repository → Program add-ons → CocoScrapers Module."
+msgstr ""
+
+msgctxt "#30049"
+msgid "Run the Real-Debrid / Trakt / home-widgets checklist now?"
+msgstr ""
+
+msgctxt "#30050"
+msgid "No VOD add-on is installed yet. Use “Install core components” first, or install Red Light from The Red Repo → Video add-ons."
+msgstr ""
+
+msgctxt "#30060"
+msgid "Authorize Real-Debrid"
+msgstr ""
+
+msgctxt "#30061"
+msgid "In Red Light (or Fen) open Settings → Accounts → Real-Debrid → Authorize.[CR][CR]On a phone or computer visit:[CR]%s[CR]and enter the code the add-on shows.[CR][CR]VOD settings will open next."
+msgstr ""
+
+msgctxt "#30062"
+msgid "Authorize Trakt"
+msgstr ""
+
+msgctxt "#30063"
+msgid "In Red Light (or Fen) open Settings → Accounts → Trakt → Authorize.[CR][CR]Approve the device on Trakt (%s) using the code the add-on shows.[CR][CR]VOD settings will open next."
+msgstr ""
+
+msgctxt "#30064"
+msgid "Enable scrapers / providers"
+msgstr ""
+
+msgctxt "#30065"
+msgid "[CR]The wizard also tried to write scraper settings automatically (add-ons differ — verify below)."
+msgstr ""
+
+msgctxt "#30066"
+msgid "If you installed Fen Light AM:[CR]Settings → Provider / Scrapers[CR]• Enable External Scrapers[CR]• Choose External Scrapers Module → CocoScrapers[CR][CR]Red Light uses its own Real-Debrid providers — authorize RD and you are done.%s[CR][CR]VOD settings will open next."
+msgstr ""
+
+msgctxt "#30067"
+msgid "Arctic Fuse 3 widget tips"
+msgstr ""
+
+msgctxt "#30068"
+msgid "LeanFlix can apply the Netflix home automatically (checklist → Apply Netflix home widgets).[CR][CR]Manual path if a Fuse update resets it:[CR]Skin settings → Shortcuts → Customise shortcuts → Home widgets → TMDb Helper lists.[CR][CR]Hubs: Movies · TV Shows · Search · Settings (no Music / Live TV).[CR][CR]Status: skin=%s, TMDb Helper=%s[CR][CR]Authorize Trakt in TMDb Helper (not only Red Light) so Continue Watching / watchlist fill in."
+msgstr ""
+
+msgctxt "#30069"
+msgid "Done"
+msgstr ""
+
+msgctxt "#30070"
+msgid "Apply Netflix home widgets"
+msgstr ""
+
+msgctxt "#30071"
+msgid "Write TMDb Helper rows onto the Arctic Fuse 3 home?[CR][CR]Trending and Popular work without Trakt (home will not stay blank). Continue Watching / watchlists fill after you authorize Trakt inside TMDb Helper.[CR][CR]Existing Fuse widget JSON is backed up first."
+msgstr ""
+
+msgctxt "#30072"
+msgid "Netflix home widgets applied — reload if rows are still empty"
+msgstr ""
+
+msgctxt "#30073"
+msgid "Arctic Fuse 3 is not installed. Run “Install core components” first."
+msgstr ""
+
+msgctxt "#30074"
+msgid "Authorize Trakt in TMDb Helper"
+msgstr ""
+
+msgctxt "#30075"
+msgid "Home widgets read Trakt from TMDb Helper — authorizing Red Light alone is not enough.[CR][CR]TMDb Helper will start device login next. Approve it on trakt.tv.[CR][CR]Then re-apply Netflix home widgets (or Reload skin) so Continue Watching and watchlists appear."
+msgstr ""
+
+msgctxt "#30076"
+msgid "Trending / Popular rows are live from TMDb.[CR][CR]Authorize Trakt inside TMDb Helper now so Continue Watching and watchlists fill in?[CR][CR](Red Light Trakt is separate — both need auth.)"
+msgstr ""
+
+msgctxt "#30077"
+msgid "TMDb Helper is not installed. It normally arrives as an Arctic Fuse 3 dependency. Install it from the jurialmunkey repo, then re-apply the home widgets."
+msgstr ""
+
+msgctxt "#30078"
+msgid "Could not apply the home preset:[CR]%s"
+msgstr ""
+
+msgctxt "#30079"
+msgid "Arctic Fuse 3 home is empty until widgets point at TMDb Helper (this build has no local movie library).[CR][CR]Apply Netflix-style home rows now?"
+msgstr ""

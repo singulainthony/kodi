@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="script.leanflix.wizard" name="LeanFlix Wizard" version="1.0.2" provider-name="LeanFlix">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.script" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">First-run installer for a lean Real-Debrid + Trakt Kodi build</summary>
+        <description lang="en_GB">Installs upstream repositories and core add-ons for a Netflix-style movies/TV setup: Arctic Fuse 3, Red Light (Real-Debrid + Trakt; Fen Light AM if still listed), and CocoScrapers. Then walks through Real-Debrid, Trakt, scraper enablement, and applies TMDb Helper home widgets. Does not install live TV, music, or arcade packs.</description>
+        <disclaimer lang="en_GB">Does not host or provide video content. You must supply your own Real-Debrid and Trakt accounts. Not affiliated with Kodi, Fen, CocoScrapers, jurialmunkey, Red Wizard, or CocoJoe.</disclaimer>
+        <platform>all</platform>
+        <license>GPL-2.0-or-later</license>
+        <language>en</language>
+        <website>https://github.com/anonymouspro/kodi</website>
+        <source>https://github.com/anonymouspro/kodi</source>
+        <assets>
+            <icon>resources/icon.png</icon>
+            <fanart>resources/fanart.png</fanart>
+        </assets>
+        <news>1.0.2 - Apply Netflix-style Arctic Fuse 3 home widgets via TMDb Helper (no local library)</news>
+    </extension>
+</addon>
+</addons>

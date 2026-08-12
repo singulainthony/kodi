@@ -1,0 +1,8 @@
+{
+  "name": "Red Light",
+  "plugin": "plugin.video.redlight",
+  "priority": 40,
+  "is_resolvable": "false",
+  "play_movie": "plugin://plugin.video.redlight/?mode=playback.media&media_type=movie&tmdb_id={tmdb}&imdb_id={imdb}&query={title}&title={title}&year={year}&autoplay=true",
+  "play_episode": "plugin://plugin.video.redlight/?mode=playback.media&media_type=episode&tmdb_id={tmdb}&imdb_id={imdb}&query={showname}&year={year}&season={season}&episode={episode}&ep_name={title}&premiered={firstaired}&autoplay=true"
+}

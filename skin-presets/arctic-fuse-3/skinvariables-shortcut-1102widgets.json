@@ -1,0 +1,51 @@
+[
+  {
+    "label": "Trending TV Shows",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=trending_week&tmdb_type=tv&nextpage=false&widget=true",
+    "target": "videos",
+    "guid": "leanflix-tv-trending"
+  },
+  {
+    "label": "Popular TV Shows",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=popular&tmdb_type=tv&nextpage=false&widget=true",
+    "target": "videos",
+    "guid": "leanflix-tv-popular"
+  },
+  {
+    "label": "Airing Today",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=airing_today&tmdb_type=tv&nextpage=false&widget=true",
+    "target": "videos",
+    "guid": "leanflix-tv-airing"
+  },
+  {
+    "label": "On The Air",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=on_the_air&tmdb_type=tv&nextpage=false&widget=true",
+    "target": "videos",
+    "guid": "leanflix-tv-ontheair"
+  },
+  {
+    "label": "Top Rated",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=top_rated&tmdb_type=tv&nextpage=false&widget=true",
+    "target": "videos",
+    "guid": "leanflix-tv-top"
+  },
+  {
+    "label": "TV Watchlist",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist&tmdb_type=tv&nextpage=false&widget=true",
+    "target": "videos",
+    "guid": "leanflix-tv-watchlist"
+  },
+  {
+    "label": "Next Episodes",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=trakt_nextepisodes&tmdb_type=tv&nextpage=false&widget=true",
+    "target": "videos",
+    "guid": "leanflix-tv-next"
+  }
+]
