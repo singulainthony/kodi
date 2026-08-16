@@ -314,7 +314,8 @@ def install_core_components():
         switch_skin(prompt=True)
         from . import home_preset
         if kodi.yesno(heading, kodi.localized(30079)):
-            home_preset.apply_netflix_home(prompt=False)
+            tv_mode = kodi.yesno(heading, kodi.localized(30080))
+            home_preset.apply_netflix_home(prompt=False, tv_mode=tv_mode)
 
     if fen_id or kodi.is_addon_installed(COCOSCRAPERS_ID):
         from . import checklist

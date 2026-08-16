@@ -28,6 +28,8 @@ from .constants import (
 
 TMDBH = 'plugin://plugin.video.themoviedb.helper/'
 WIDGET_FLAGS = 'nextpage=false&widget=true'
+# Sony / built-in smart TVs choke on 20+ high-res posters at once
+TV_WIDGET_LIMIT = 10
 
 # userdata/addon_data/script.skinvariables/nodes/skin.arctic.fuse.3/
 NODES_SUBDIR = os.path.join('script.skinvariables', 'nodes', SKIN_ID)
@@ -37,8 +39,11 @@ PLAYERS_SUBDIR = os.path.join(TMDBHELPER_ID, 'players')
 LIVE_TV_TOGGLE = 'HomeSwitcher.1107.Toggle'
 
 
-def _tmdb(info, tmdb_type):
-    return '%s?info=%s&tmdb_type=%s&%s' % (TMDBH, info, tmdb_type, WIDGET_FLAGS)
+def _tmdb(info, tmdb_type, limit=None):
+    url = '%s?info=%s&tmdb_type=%s&%s' % (TMDBH, info, tmdb_type, WIDGET_FLAGS)
+    if limit:
+        url += '&limit=%s' % int(limit)
+    return url
 
 
 def _item(label, path, guid, icon=''):
@@ -51,8 +56,16 @@ def _item(label, path, guid, icon=''):
     }
 
 
-def home_widgets():
+def home_widgets(tv_mode=False):
     """Home hub: TMDb rows first so the wall is never blank pre-Trakt."""
+    limit = TV_WIDGET_LIMIT if tv_mode else None
+    if tv_mode:
+        return [
+            _item('Continue Watching', _tmdb('trakt_ondeck', 'tv', limit), 'leanflix-home-continue'),
+            _item('Trending Movies', _tmdb('trending_week', 'movie', limit), 'leanflix-home-trending-movies'),
+            _item('Trending TV Shows', _tmdb('trending_week', 'tv', limit), 'leanflix-home-trending-tv'),
+            _item('Movie Watchlist', _tmdb('trakt_watchlist', 'movie', limit), 'leanflix-home-watchlist-movies'),
+        ]
     return [
         _item('Trending Movies', _tmdb('trending_week', 'movie'), 'leanflix-home-trending-movies'),
         _item('Trending TV Shows', _tmdb('trending_week', 'tv'), 'leanflix-home-trending-tv'),
@@ -64,7 +77,14 @@ def home_widgets():
     ]
 
 
-def movies_widgets():
+def movies_widgets(tv_mode=False):
+    limit = TV_WIDGET_LIMIT if tv_mode else None
+    if tv_mode:
+        return [
+            _item('Trending Movies', _tmdb('trending_week', 'movie', limit), 'leanflix-movies-trending'),
+            _item('Popular Movies', _tmdb('popular', 'movie', limit), 'leanflix-movies-popular'),
+            _item('Movie Watchlist', _tmdb('trakt_watchlist', 'movie', limit), 'leanflix-movies-watchlist'),
+        ]
     return [
         _item('Trending Movies', _tmdb('trending_week', 'movie'), 'leanflix-movies-trending'),
         _item('Popular Movies', _tmdb('popular', 'movie'), 'leanflix-movies-popular'),
@@ -76,7 +96,14 @@ def movies_widgets():
     ]
 
 
-def tv_widgets():
+def tv_widgets(tv_mode=False):
+    limit = TV_WIDGET_LIMIT if tv_mode else None
+    if tv_mode:
+        return [
+            _item('Trending TV Shows', _tmdb('trending_week', 'tv', limit), 'leanflix-tv-trending'),
+            _item('Popular TV Shows', _tmdb('popular', 'tv', limit), 'leanflix-tv-popular'),
+            _item('TV Watchlist', _tmdb('trakt_watchlist', 'tv', limit), 'leanflix-tv-watchlist'),
+        ]
     return [
         _item('Trending TV Shows', _tmdb('trending_week', 'tv'), 'leanflix-tv-trending'),
         _item('Popular TV Shows', _tmdb('popular', 'tv'), 'leanflix-tv-popular'),
@@ -175,13 +202,13 @@ def _backup_if_present(path):
         kodi.log('Backup skipped for %s: %s' % (path, exc), xbmc.LOGWARNING)
 
 
-def _write_skinvariables_nodes():
+def _write_skinvariables_nodes(tv_mode=False):
     dest = _nodes_dir()
     kodi.ensure_dir(dest)
     files = {
-        'skinvariables-shortcut-homewidgets.json': home_widgets(),
-        'skinvariables-shortcut-1101widgets.json': movies_widgets(),
-        'skinvariables-shortcut-1102widgets.json': tv_widgets(),
+        'skinvariables-shortcut-homewidgets.json': home_widgets(tv_mode=tv_mode),
+        'skinvariables-shortcut-1101widgets.json': movies_widgets(tv_mode=tv_mode),
+        'skinvariables-shortcut-1102widgets.json': tv_widgets(tv_mode=tv_mode),
         'skinvariables-shortcut-homesubmenu.json': lean_submenu(),
         'skinvariables-shortcut-1101submenu.json': lean_submenu(),
         'skinvariables-shortcut-1102submenu.json': lean_submenu(),
@@ -238,11 +265,12 @@ def _configure_tmdbhelper_players():
     except RuntimeError:
         return False
     # 0 = Never look up / play from the local Kodi library (no library in LeanFlix)
-    for key, value in (
+    pairs = [
         ('use_kodi_local_db', '0'),
         ('default_player_kodi', '0'),
         ('widgets_nextpage', 'false'),
-    ):
+    ]
+    for key, value in pairs:
         try:
             helper.setSetting(key, value)
         except Exception as exc:
@@ -257,6 +285,45 @@ def _configure_tmdbhelper_players():
     return True
 
 
+def _configure_tmdbhelper_tv_mode():
+    """Lower artwork cost so widgets do not stall a Sony / built-in smart TV."""
+    if not kodi.is_addon_installed(TMDBHELPER_ID):
+        return False
+    try:
+        helper = xbmcaddon.Addon(TMDBHELPER_ID)
+    except RuntimeError:
+        return False
+    # artwork_quality: 0 Highest, 1 High, 2 Medium, 3 Low, 4 Original (huge files)
+    for key, value in (
+        ('artwork_quality', '3'),
+        ('fanarttv_lookup', 'false'),
+        ('use_online_ratings', 'false'),
+        ('genre_fanart', 'false'),
+        ('provider_fanart', 'false'),
+        ('pagemulti_tmdb', '1'),
+        ('pagemulti_trakt', '1'),
+        ('max_threads', '10'),
+    ):
+        try:
+            helper.setSetting(key, value)
+        except Exception as exc:
+            kodi.log('TMDb Helper TV setSetting(%s) failed: %s' % (key, exc), xbmc.LOGWARNING)
+    return True
+
+
+def _configure_kodi_tv_settings():
+    for setting, value in (
+        ('videoplayer.hqscalers', 0),
+        ('lookandfeel.enablerssfeeds', False),
+    ):
+        result = kodi.jsonrpc('Settings.SetSettingValue', {
+            'setting': setting,
+            'value': value,
+        })
+        if not kodi.jsonrpc_ok(result):
+            kodi.log('Kodi setting %s failed: %s' % (setting, result), xbmc.LOGWARNING)
+
+
 def _current_skin_id():
     result = kodi.jsonrpc('Settings.GetSettingValue', {'setting': 'lookandfeel.skin'})
     try:
@@ -265,7 +332,7 @@ def _current_skin_id():
         return ''
 
 
-def _configure_hub_switcher():
+def _configure_hub_switcher(tv_mode=False):
     """Movies + TV Shows hubs on; Live TV / extra hubs off. Search + Settings stay."""
     if _current_skin_id() != SKIN_ID:
         kodi.log('Skip hub switcher strings; current skin is not %s' % SKIN_ID, xbmc.LOGWARNING)
@@ -276,17 +343,33 @@ def _configure_hub_switcher():
     kodi.skin_set_string('HomeSwitcher.1102.Toggle', 'true')
     kodi.skin_set_string('HomeSwitcher.1102.Name', 'TV Shows')
     kodi.skin_set_string('HomeSwitcher.1102.Icon', 'special://skin/extras/icons/tv.png')
-    kodi.skin_set_string(
-        'HomeSwitcher.Home.Spotlight.Path',
-        _tmdb('trending_week', 'movie'),
-    )
-    kodi.skin_set_string('HomeSwitcher.Home.Spotlight.Target', 'videos')
-    kodi.skin_set_string('HomeSwitcher.Home.Spotlight.Label', 'Trending Movies')
+    if tv_mode:
+        # Spotlight fanart is expensive on weak SoCs
+        kodi.skin_reset('HomeSwitcher.Home.Spotlight.Path')
+        kodi.skin_reset('HomeSwitcher.Home.Spotlight.Target')
+        kodi.skin_reset('HomeSwitcher.Home.Spotlight.Label')
+    else:
+        kodi.skin_set_string(
+            'HomeSwitcher.Home.Spotlight.Path',
+            _tmdb('trending_week', 'movie'),
+        )
+        kodi.skin_set_string('HomeSwitcher.Home.Spotlight.Target', 'videos')
+        kodi.skin_set_string('HomeSwitcher.Home.Spotlight.Label', 'Trending Movies')
     kodi.skin_reset(LIVE_TV_TOGGLE)
     for hub in ('1103', '1104', '1106', '1108'):
         kodi.skin_reset('HomeSwitcher.%s.Toggle' % hub)
-    # Search hub is on unless this bool is set
     kodi.skin_set_bool('HomeSwitcher.DisableSearch', False)
+
+
+def _configure_fuse_tv_performance():
+    """Fuse 3 first-run enables blur + crop; both hammer a Sony TV CPU."""
+    if _current_skin_id() != SKIN_ID:
+        return
+    kodi.skin_reset('TMDbHelper.EnableBlur')
+    kodi.skin_reset('TMDbHelper.EnableCrop')
+    kodi.skin_reset('Background.ExtraFanart')
+    kodi.skin_reset('SeasonalTheme.Enable')
+    kodi.skin_set_bool('Background.DisableVideo', True)
 
 
 def _rebuild_skinvariables():
@@ -319,7 +402,7 @@ def open_tmdbhelper_trakt():
     return True
 
 
-def apply_netflix_home(prompt=True):
+def apply_netflix_home(prompt=True, tv_mode=None):
     heading = kodi.localized(30000)
     if not kodi.is_addon_installed(SKIN_ID):
         kodi.ok(heading, kodi.localized(30073))
@@ -327,25 +410,43 @@ def apply_netflix_home(prompt=True):
     if prompt and not kodi.yesno(heading, kodi.localized(30071)):
         return False
 
+    if tv_mode is None:
+        tv_mode = kodi.yesno(heading, kodi.localized(30080))
+
     if not kodi.is_addon_enabled(SKIN_ID):
         kodi.set_addon_enabled(SKIN_ID, True)
         kodi.sleep_ms(800)
 
     try:
-        nodes = _write_skinvariables_nodes()
+        nodes = _write_skinvariables_nodes(tv_mode=tv_mode)
         players = _write_players()
         _configure_tmdbhelper_players()
-        _configure_hub_switcher()
+        if tv_mode:
+            _configure_tmdbhelper_tv_mode()
+            _configure_kodi_tv_settings()
+            _configure_fuse_tv_performance()
+        _configure_hub_switcher(tv_mode=tv_mode)
         _rebuild_skinvariables()
     except Exception as exc:
         kodi.log('Home preset failed: %s' % exc, xbmc.LOGERROR)
         kodi.ok(heading, kodi.localized(30078) % str(exc))
         return False
 
-    kodi.notify(heading, kodi.localized(30072))
-    kodi.log('Applied Netflix home (%s nodes, %s players)' % (len(nodes), len(players)))
+    if tv_mode:
+        kodi.notify(heading, kodi.localized(30081))
+        kodi.log('Applied TV home (%s nodes, %s players)' % (len(nodes), len(players)))
+    else:
+        kodi.notify(heading, kodi.localized(30072))
+        kodi.log('Applied Netflix home (%s nodes, %s players)' % (len(nodes), len(players)))
 
     if not tmdbhelper_trakt_authorized():
         if kodi.yesno(heading, kodi.localized(30076)):
             open_tmdbhelper_trakt()
     return True
+
+
+def apply_tv_performance(prompt=True):
+    heading = kodi.localized(30000)
+    if prompt and not kodi.yesno(heading, kodi.localized(30082)):
+        return False
+    return apply_netflix_home(prompt=False, tv_mode=True)

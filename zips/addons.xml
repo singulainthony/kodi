@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="script.leanflix.wizard" name="LeanFlix Wizard" version="1.0.2" provider-name="LeanFlix">
+<addon id="script.leanflix.wizard" name="LeanFlix Wizard" version="1.0.3" provider-name="LeanFlix">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
     </requires>
@@ -20,7 +20,7 @@
             <icon>resources/icon.png</icon>
             <fanart>resources/fanart.png</fanart>
         </assets>
-        <news>1.0.2 - Apply Netflix-style Arctic Fuse 3 home widgets via TMDb Helper (no local library)</news>
+        <news>1.0.3 - TV / low-power mode: fewer widgets, blur off, lighter TMDb artwork for smart TVs</news>
     </extension>
 </addon>
 </addons>

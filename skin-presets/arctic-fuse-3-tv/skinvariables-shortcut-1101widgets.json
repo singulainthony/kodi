@@ -1,0 +1,23 @@
+[
+  {
+    "label": "Trending Movies",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=trending_week&tmdb_type=movie&nextpage=false&widget=true&limit=10",
+    "target": "videos",
+    "guid": "leanflix-movies-trending"
+  },
+  {
+    "label": "Popular Movies",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=popular&tmdb_type=movie&nextpage=false&widget=true&limit=10",
+    "target": "videos",
+    "guid": "leanflix-movies-popular"
+  },
+  {
+    "label": "Movie Watchlist",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist&tmdb_type=movie&nextpage=false&widget=true&limit=10",
+    "target": "videos",
+    "guid": "leanflix-movies-watchlist"
+  }
+]

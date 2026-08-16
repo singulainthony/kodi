@@ -210,3 +210,19 @@ msgstr ""
 msgctxt "#30079"
 msgid "Arctic Fuse 3 home is empty until widgets point at TMDb Helper (this build has no local movie library).[CR][CR]Apply Netflix-style home rows now?"
 msgstr ""
+
+msgctxt "#30080"
+msgid "Is this a smart TV or a slow box (Sony, older Firestick, cheap Android TV)?[CR][CR]Yes = fewer rows, blur off, smaller posters (recommended on TVs).[CR]No = full Netflix-style home."
+msgstr ""
+
+msgctxt "#30081"
+msgid "TV mode applied — fewer rows, blur off. Reload if the home still looks heavy."
+msgstr ""
+
+msgctxt "#30082"
+msgid "Optimize Arctic Fuse 3 for a smart TV?[CR][CR]This cuts home rows to four, turns off blur/crop/extra fanart, and uses smaller TMDb posters. Playback quality is unchanged."
+msgstr ""
+
+msgctxt "#30083"
+msgid "Optimize for TV / slow device"
+msgstr ""

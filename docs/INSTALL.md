@@ -31,12 +31,12 @@ No Downloader app needed. Add a short HTTP source, then install the zip from it.
 
 3. Name the source **LeanFlix** → OK.
 4. **Add-ons → open-box icon → Install from zip file** → **LeanFlix**
-5. Select **`script.leanflix.wizard-1.0.2.zip`** → install.
+5. Select **`script.leanflix.wizard-1.0.3.zip`** → install.
 6. Run **Program add-ons → LeanFlix Wizard**.
 
 ### B. USB / local copy
 
-1. Copy `install/script.leanflix.wizard-1.0.2.zip` to USB or Downloads.
+1. Copy `install/script.leanflix.wizard-1.0.3.zip` to USB or Downloads.
 2. **Install from zip file** → browse to the zip → install.
 3. Run **Program add-ons → LeanFlix Wizard**.
 
@@ -59,6 +59,7 @@ The repo’s `<info>` / `<datadir>` point at:
    - Installs **Arctic Fuse 3**, **Red Light** (`plugin.video.redlight`), **CocoScrapers**
    - Offers to switch the skin to Arctic Fuse 3 (choose **Yes** / keep skin)
    - Offers **Apply Netflix home widgets** (TMDb Helper rows — home is empty until this runs)
+   - On a Sony / slow TV, choose **Yes** when asked to optimize for a smart TV
 4. Already-installed add-ons are skipped.
 
 If Red Light is missing, install it manually:
@@ -102,6 +103,8 @@ The wizard applies this. To re-apply on an existing install:
 
 **LeanFlix Wizard → Apply Netflix home widgets**
 
+On a Sony or other built-in smart TV, use **Optimize for TV / slow device** instead (fewer rows, blur off).
+
 Manual click path and exact `plugin://` URLs: [../skin-presets/README.md](../skin-presets/README.md).
 
 Default Fuse 3 home is the local library — it will stay blank until the preset (or a manual TMDb Helper widget edit) runs.
@@ -128,6 +131,6 @@ Outputs:
 
 - `zips/addons.xml` + `zips/addons.xml.md5`
 - `zips/repository.leanflix/repository.leanflix-1.0.0.zip`
-- `zips/script.leanflix.wizard/script.leanflix.wizard-1.0.2.zip`
+- `zips/script.leanflix.wizard/script.leanflix.wizard-1.0.3.zip`
 - `install/` copies of both zips
 - `repository.leanflix-1.0.0.zip` at the repo root (first-install convenience)

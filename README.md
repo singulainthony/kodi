@@ -23,9 +23,9 @@ See **[docs/INSTALL.md](docs/INSTALL.md)**. Short version (TV remote):
 
 1. Kodi 21 → Unknown Sources → **Any repositories**
 2. **File Manager → Add source** → `https://singulainthony.github.io/kodi/repo/` → name **LeanFlix**
-3. **Install from zip file** → LeanFlix → `script.leanflix.wizard-1.0.2.zip`
+3. **Install from zip file** → LeanFlix → `script.leanflix.wizard-1.0.3.zip`
 4. Run **LeanFlix Wizard → Install core components**
-5. Apply **Netflix home widgets** (wizard offers this after skin switch)
+5. Apply **Netflix home widgets**, or **Optimize for TV / slow device** on a Sony / built-in smart TV
 6. Authorize RD + Trakt in Red Light, and Trakt again in **TMDb Helper**
 
 Already installed and the Fuse 3 home is empty? Update the wizard zip, then **Apply Netflix home widgets**. Details: **[skin-presets/README.md](skin-presets/README.md)**.

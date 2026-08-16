@@ -2,7 +2,7 @@
 """Verified and well-known IDs / URLs for the LeanFlix stack (Kodi 21)."""
 
 ADDON_ID = 'script.leanflix.wizard'
-WIZARD_VERSION = '1.0.2'
+WIZARD_VERSION = '1.0.3'
 USER_AGENT = 'Kodi/21.0 (LeanFlixWizard/%s)' % WIZARD_VERSION
 
 # Skin (verified 2026-08 from jurialmunkey omega addons.xml)

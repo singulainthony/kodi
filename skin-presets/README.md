@@ -12,10 +12,10 @@ The wizard now **writes the TMDb Helper widget JSON** Fuse 3 actually reads. Re-
 
 On an already-installed box:
 
-1. Update / reinstall `install/script.leanflix.wizard-1.0.2.zip`
+1. Update / reinstall `install/script.leanflix.wizard-1.0.3.zip`
 2. **Program add-ons → LeanFlix Wizard**
-3. **Apply Netflix home widgets**  
-   (or **Setup checklist → Apply Netflix home widgets**)
+3. **Optimize for TV / slow device** (Sony / built-in smart TVs) **or** **Apply Netflix home widgets**
+   (or **Setup checklist** for the same items)
 4. If Continue Watching / watchlists are empty: checklist → **Authorize Trakt in TMDb Helper** (this is *not* the Red Light Trakt login), then re-apply or **Reload skin**
 5. Play a title → choose **Red Light** if asked (wizard also writes a TMDb Helper player + sets it as default)
 
@@ -32,7 +32,21 @@ After a fresh core install the wizard offers the same preset once the skin switc
 | `skinvariables-shortcut-1101submenu.json` | Movies hub submenu |
 | `skinvariables-shortcut-1102submenu.json` | TV Shows hub submenu |
 
-Copies of these JSON files live in `skin-presets/arctic-fuse-3/` for manual copy.
+Copies of these JSON files live in `skin-presets/arctic-fuse-3/` for manual copy. TV-mode copies (4 home rows, 3 per hub) live in `skin-presets/arctic-fuse-3-tv/`.
+
+## Sony / smart TV slowness
+
+Arctic Fuse 3 first-run turns **blur + crop** on and LeanFlix’s full home loads **seven** TMDb rows. Built-in Sony TVs cannot keep up.
+
+**LeanFlix Wizard → Optimize for TV / slow device** will:
+
+- Cut Home to Continue Watching, Trending Movies, Trending TV, Movie Watchlist (10 posters each)
+- Cut Movies / TV hubs to three rows
+- Turn off Fuse blur, crop, extra fanart, seasonal effects, and the home spotlight
+- Set TMDb Helper artwork to **Low** and disable Fanart.tv lookups
+- Disable Kodi HQ scalers and RSS feeds
+
+Playback quality (Real-Debrid streams) is unchanged — only the menu gets lighter.
 
 Hub switcher (skin strings):
 

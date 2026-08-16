@@ -106,7 +106,15 @@ def main() -> int:
     shutil.copy2(repo_zip, INSTALL / repo_zip.name)
     shutil.copy2(wizard_zip, INSTALL / wizard_zip.name)
     shutil.copy2(repo_zip, ROOT / repo_zip.name)
-    print('  copied convenience zips to install/ and repository.leanflix-*.zip at repo root')
+    pages = ROOT / 'repo'
+    pages.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(repo_zip, pages / repo_zip.name)
+    shutil.copy2(wizard_zip, pages / wizard_zip.name)
+    for old in pages.glob('script.leanflix.wizard-*.zip'):
+        if old.name != wizard_zip.name:
+            old.unlink()
+            print('  removed leftover', old.relative_to(ROOT))
+    print('  copied convenience zips to install/, repo/, and repository.leanflix-*.zip at repo root')
     print('Done.')
     return 0
 

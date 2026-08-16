@@ -99,6 +99,7 @@ def run_checklist():
         kodi.localized(30062),  # Authorize Trakt (VOD)
         kodi.localized(30074),  # Authorize Trakt in TMDb Helper
         kodi.localized(30070),  # Apply Netflix home widgets
+        kodi.localized(30083),  # Optimize for TV / slow device
         kodi.localized(30064),  # Enable CocoScrapers in Fen
         kodi.localized(30067),  # Widget tips
         kodi.localized(30012),  # Open Fen settings
@@ -115,10 +116,12 @@ def run_checklist():
         elif choice == 3:
             home_preset.apply_netflix_home(prompt=True)
         elif choice == 4:
-            _enable_coco_in_fen()
+            home_preset.apply_tv_performance(prompt=True)
         elif choice == 5:
-            _widget_tips()
+            _enable_coco_in_fen()
         elif choice == 6:
+            _widget_tips()
+        elif choice == 7:
             open_fen_settings()
         else:
             break

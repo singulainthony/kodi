@@ -23,6 +23,7 @@ def _main_menu():
         localized(30010),  # Install core components
         localized(30011),  # Setup checklist
         localized(30070),  # Apply Netflix home widgets
+        localized(30083),  # Optimize for TV / slow device
         localized(30012),  # Open VOD add-on settings
         localized(30013),  # Switch skin to Arctic Fuse 3
         localized(30014),  # Exit
@@ -44,8 +45,10 @@ def main():
         elif choice == 2:
             home_preset.apply_netflix_home(prompt=True)
         elif choice == 3:
-            checklist.open_fen_settings()
+            home_preset.apply_tv_performance(prompt=True)
         elif choice == 4:
+            checklist.open_fen_settings()
+        elif choice == 5:
             installer.switch_skin()
         else:
             notify(localized(30000), localized(30021))

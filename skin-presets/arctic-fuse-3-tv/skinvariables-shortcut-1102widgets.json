@@ -1,0 +1,23 @@
+[
+  {
+    "label": "Trending TV Shows",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=trending_week&tmdb_type=tv&nextpage=false&widget=true&limit=10",
+    "target": "videos",
+    "guid": "leanflix-tv-trending"
+  },
+  {
+    "label": "Popular TV Shows",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=popular&tmdb_type=tv&nextpage=false&widget=true&limit=10",
+    "target": "videos",
+    "guid": "leanflix-tv-popular"
+  },
+  {
+    "label": "TV Watchlist",
+    "icon": "",
+    "path": "plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist&tmdb_type=tv&nextpage=false&widget=true&limit=10",
+    "target": "videos",
+    "guid": "leanflix-tv-watchlist"
+  }
+]
